@@ -73,7 +73,7 @@ public interface JsonValue {
   /** Return all contained properties
    *
    * @return properties
-   * throws JsforjException if not an object
+   * throws JsonException if not an object
    */
   List<JsonProperty<?>> getProperties();
 
@@ -82,7 +82,7 @@ public interface JsonValue {
    * @param type expected type
    * @param name of property
    * @return property or null
-   * throws JsforjException if not an object
+   * throws JsonException if not an object
    */
   <T extends JsonValue> JsonProperty<T> getProperty(
           TypeReference<T> type,
@@ -92,7 +92,7 @@ public interface JsonValue {
    *
    * @param name of property
    * @return property or null
-   * throws JsforjException if not an object
+   * throws JsonException if not an object
    */
   JsonProperty<?> getProperty(String name);
 
@@ -114,7 +114,7 @@ public interface JsonValue {
 
   /** Remove named property
    *
-   * throws JsforjException if not an object
+   * throws JsonException if not an object
    */
   void removeProperty(String name);
 
@@ -150,7 +150,7 @@ public interface JsonValue {
    *
    * @param name the property name - non null
    * @return the value of the property - false if absent
-   * throws JsforjException if not a boolean property
+   * throws JsonException if not a boolean property
    */
   boolean getBooleanProperty(String name);
 
@@ -158,7 +158,7 @@ public interface JsonValue {
    *
    * @param name the property name - non null
    * @return the value of the property - false if absent
-   * throws JsforjException if not a boolean property
+   * throws JsonException if not a boolean property
    */
   Long getLongProperty(String name);
 
@@ -166,7 +166,7 @@ public interface JsonValue {
    *
    * @param name the property name - non null
    * @return the value of the property - false if absent
-   * throws JsforjException if not a boolean property
+   * throws JsonException if not a boolean property
    */
   Double getDoubleProperty(String name);
 
@@ -174,7 +174,7 @@ public interface JsonValue {
    *
    * @param name the property name - non null
    * @return the value of the property
-   * throws JsforjException if not a String property
+   * throws JsonException if not a String property
    */
   String getStringProperty(String name);
 
@@ -229,7 +229,7 @@ public interface JsonValue {
    * @param name the property name - non null
    * @param type the property type
    * @return the property
-   * throws JsforjException if property already exists
+   * throws JsonException if property already exists
    */
   <T extends JsonValue> JsonProperty<T> makeProperty(
           TypeReference<T> typeRef,
@@ -240,7 +240,7 @@ public interface JsonValue {
    * @param name the property name - non null
    * @param type the property type
    * @return the property
-   * throws JsforjException if property already exists
+   * throws JsonException if property already exists
    */
   <T extends JsonValue> JsonProperty<T> newProperty(
           TypeReference<T> typeRef,
@@ -250,35 +250,35 @@ public interface JsonValue {
    *
    * @param name the property name - non null
    * @return the value of the property
-   * throws JsforjException if not a String property
+   * throws JsonException if not a String property
    */
   JsonUnsignedInteger getUnsignedIntegerProperty(String name);
 
   /** Returns value as a String.
    *
    * @return the value of the property
-   * throws JsforjException if not a String property
+   * throws JsonException if not a String property
    */
   String getStringValue();
 
   /** Returns value as a boolean.
    *
    * @return the value of the property
-   * throws JsforjException if not a boolean property
+   * throws JsonException if not a boolean property
    */
   boolean getBooleanValue();
 
   /** Returns value as a long.
    *
    * @return the value of the property
-   * throws JsforjException if not a long property
+   * throws JsonException if not a long property
    */
   long getLongValue();
 
   /** Returns value as a double.
    *
    * @return the value of the property
-   * throws JsforjException if not a double property
+   * throws JsonException if not a double property
    */
   double getDoubleValue();
 

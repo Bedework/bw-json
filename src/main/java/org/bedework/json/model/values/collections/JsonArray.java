@@ -28,7 +28,7 @@ public interface JsonArray<T> extends JsonValue {
    *
    * @param index of entry
    * @return the value
-   * throws JsforjException if index out of bounds
+   * throws JsonException if index out of bounds
    */
   T get(int index);
 
@@ -41,7 +41,7 @@ public interface JsonArray<T> extends JsonValue {
   /**
    *
    * @param index of element to remove
-   * throws JsforjException if index out of bounds
+   * throws JsonException if index out of bounds
    */
   void remove(int index);
 
