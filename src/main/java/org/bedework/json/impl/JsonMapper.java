@@ -4,6 +4,7 @@
 package org.bedework.json.impl;
 
 import org.bedework.json.JsonException;
+import org.bedework.json.JsonRegistration;
 import org.bedework.json.model.values.JsonValue;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -16,11 +17,24 @@ import java.io.Reader;
  * User: mike Date: 10/23/19 Time: 23:44
  */
 public class JsonMapper extends ObjectMapper {
-  final static JsonFactory factory = JsonFactory.getFactory();
+  final JsonFactory factory;
 
   public JsonMapper() {
+    this.factory = JsonFactory.getFactory(new JsonPropertyAttributes());
+
     setSerializationInclusion(JsonInclude.Include.NON_NULL);
     // configure(JsonFactory.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+  }
+
+  public JsonMapper(final JsonFactory factory) {
+    this.factory = factory;
+
+    setSerializationInclusion(JsonInclude.Include.NON_NULL);
+    // configure(JsonFactory.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+  }
+
+  public void registerTypes(final JsonRegistration val) {
+    factory.register(val);
   }
 
   public JsonValue parse(final Reader rdr) {

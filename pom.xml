@@ -8,15 +8,15 @@
   </parent>
 
   <artifactId>bw-json</artifactId>
-  <version>1.1.1-SNAPSHOT</version>
-  <name>Bedework jsforj: Support for JSCalendar/JSContacts</name>
-  <description>JSCalendar/JSContacts support</description>
-  <url>https://github.com/Bedework/bw-jsforj</url>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>Bedework json: Basic support for json objects and types</name>
+  <description>Basic support for json objects and types</description>
+  <url>https://github.com/Bedework/bw-json</url>
 
   <scm>
-    <connection>scm:git:git@github.com:Bedework/bw-jsforj.git</connection>
-    <developerConnection>scm:git:git@github.com:Bedework/bw-jsforj.git</developerConnection>
-    <url>https://github.com/Bedework/bw-jsforj</url>
+    <connection>scm:git:git@github.com:Bedework/bw-json.git</connection>
+    <developerConnection>scm:git:git@github.com:Bedework/bw-json.git</developerConnection>
+    <url>https://github.com/Bedework/bw-json</url>
     <tag>HEAD</tag>
   </scm>
 

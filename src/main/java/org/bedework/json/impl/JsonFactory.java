@@ -3,7 +3,6 @@
 */
 package org.bedework.json.impl;
 
-import org.bedework.jsforj.impl.values.JSUnknownTypeImpl;
 import org.bedework.json.JsonException;
 import org.bedework.json.JsonRegistration;
 import org.bedework.json.JsonTypeInfo;
@@ -45,7 +44,6 @@ public class JsonFactory {
   private final List<JsonRegistration> registrations =
           new ArrayList<>();
 
-
   public static JsonFactory getFactory(final JsonRegistration types) {
     final var factory = new JsonFactory();
 
@@ -63,7 +61,7 @@ public class JsonFactory {
    * @param name of property
    * @return type name - null if unknown property
    */
-  public static String getPropertyType(final String name) {
+  public String getPropertyType(final String name) {
     for (final var registration: registrations) {
       final var ptype = registration.getType(name);
       if (ptype != null) {
@@ -79,7 +77,7 @@ public class JsonFactory {
    * @param name of type
    * @return type information - null if unknown type
    */
-  public static JsonTypeInfo getTypeInfo(final String name) {
+  public JsonTypeInfo getTypeInfo(final String name) {
     for (final var registration: registrations) {
       final var typeInfo = registration.getTypeInfo(name);
       if (typeInfo != null) {
@@ -93,8 +91,8 @@ public class JsonFactory {
   /**
    * Creates objects which may be independent top level objects or
    * entries in a group.
-   * @param nd
-   * @return
+   * @param nd json node
+   * @return a JsonValue object
    */
   public JsonValue makeValue(final JsonNode nd) {
     if (!nd.isObject()) {
@@ -146,7 +144,7 @@ public class JsonFactory {
       final var typeInfo = getTypeInfo(theName);
       if ((typeInfo != null) && typeInfo.getRequiresType()) {
         // Could validate here
-        if (nd.isObject() && !type.equals(JsonTypes.typePatchObject)) {
+        if (nd.isObject()) {
           final var ntype = getType(nd);
           if (type.equals(ntype)) {
             throw new JsonException("Invalid type for ",

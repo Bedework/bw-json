@@ -161,11 +161,7 @@ class JsonPropertyAttributes implements JsonRegistration {
     return ptypes.get(propertyName);
   }
 
-  /**
-   *
-   * @param name of type
-   * @return type information - null if unknown type
-   */
+  @Override
   public JsonTypeInfo getTypeInfo(final String name) {
     return types.get(name);
   }
