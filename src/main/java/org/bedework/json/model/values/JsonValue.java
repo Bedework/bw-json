@@ -154,6 +154,22 @@ public interface JsonValue {
    */
   boolean getBooleanProperty(String name);
 
+  /** Returns value of named long property.
+   *
+   * @param name the property name - non null
+   * @return the value of the property - false if absent
+   * throws JsforjException if not a boolean property
+   */
+  Long getLongProperty(String name);
+
+  /** Returns value of named double property.
+   *
+   * @param name the property name - non null
+   * @return the value of the property - false if absent
+   * throws JsforjException if not a boolean property
+   */
+  Double getDoubleProperty(String name);
+
   /** Returns value of named String property.
    *
    * @param name the property name - non null
@@ -183,6 +199,22 @@ public interface JsonValue {
    * @return the property
    */
   JsonProperty<?> setProperty(String name, Integer val);
+
+  /** Set the value for a long type property
+   *
+   * @param name the property name - non null
+   * @param val the property value
+   * @return the property
+   */
+  JsonProperty<?> setProperty(String name, Long val);
+
+  /** Set the value for a double type property
+   *
+   * @param name the property name - non null
+   * @param val the property value
+   * @return the property
+   */
+  JsonProperty<?> setProperty(String name, Double val);
 
   /** Set the value for a boolean type property
    *
@@ -235,6 +267,20 @@ public interface JsonValue {
    * throws JsforjException if not a boolean property
    */
   boolean getBooleanValue();
+
+  /** Returns value as a long.
+   *
+   * @return the value of the property
+   * throws JsforjException if not a long property
+   */
+  long getLongValue();
+
+  /** Returns value as a double.
+   *
+   * @return the value of the property
+   * throws JsforjException if not a double property
+   */
+  double getDoubleValue();
 
   /** Convert to json with this as root
    *

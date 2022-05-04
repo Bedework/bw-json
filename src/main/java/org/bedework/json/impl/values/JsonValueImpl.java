@@ -281,6 +281,28 @@ public abstract class JsonValueImpl implements JsonValue {
   }
 
   @Override
+  public Long getLongProperty(final String name) {
+    final var prop = getProperty(new TypeReference<>() {},name);
+
+    if (prop == null) {
+      return null;
+    }
+
+    return prop.getValue().getLongValue();
+  }
+
+  @Override
+  public Double getDoubleProperty(final String name) {
+    final var prop = getProperty(new TypeReference<>() {},name);
+
+    if (prop == null) {
+      return null;
+    }
+
+    return prop.getValue().getDoubleValue();
+  }
+
+  @Override
   public boolean isString() {
     return getNode().isTextual();
   }
@@ -313,6 +335,32 @@ public abstract class JsonValueImpl implements JsonValue {
     }
 
     throw new JsonException("Not boolean value");
+  }
+
+  @Override
+  public long getLongValue() {
+    if (getNode().isLong()) {
+      return getNode().asLong();
+    }
+
+    if (getNode().isTextual()) {
+      return Long.parseLong(getNode().asText());
+    }
+
+    throw new JsonException("Not long value");
+  }
+
+  @Override
+  public double getDoubleValue() {
+    if (getNode().isDouble()) {
+      return getNode().asDouble();
+    }
+
+    if (getNode().isTextual()) {
+      return Double.parseDouble(getNode().asText());
+    }
+
+    throw new JsonException("Not double value");
   }
 
   @Override
@@ -429,6 +477,18 @@ public abstract class JsonValueImpl implements JsonValue {
   @Override
   public JsonProperty<?> setProperty(final String name,
                                    final Integer val) {
+    return setProperty(factory.makeProperty(name, val));
+  }
+
+  @Override
+  public JsonProperty<?> setProperty(final String name,
+                                   final Long val) {
+    return setProperty(factory.makeProperty(name, val));
+  }
+
+  @Override
+  public JsonProperty<?> setProperty(final String name,
+                                   final Double val) {
     return setProperty(factory.makeProperty(name, val));
   }
 

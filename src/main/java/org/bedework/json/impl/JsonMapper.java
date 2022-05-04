@@ -37,6 +37,10 @@ public class JsonMapper extends ObjectMapper {
     factory.register(val);
   }
 
+  public JsonFactory getJFactory() {
+    return factory;
+  }
+
   public JsonValue parse(final Reader rdr) {
     final JsonNode nd;
 
