@@ -139,6 +139,13 @@ public interface JsonValue {
    */
   JsonProperty<?> setProperty(String name, String val);
 
+  /** Set the value for a string type property
+   *
+   * @param name the property name - non null
+   * @param val the property value - null means remove
+   */
+  void setOrRemoveProperty(String name, String val);
+
   /** Get the value. Return null if absent.
    *
    * @param name of property

@@ -468,6 +468,15 @@ public abstract class JsonValueImpl implements JsonValue {
     return setProperty(factory.makeProperty(name, val));
   }
 
+  public void setOrRemoveProperty(final String name,
+                                  final String val) {
+    if (val == null) {
+      removeProperty(name);
+    } else {
+      setProperty(name, val);
+    }
+  }
+
   @Override
   public JsonProperty<?> setProperty(final String name,
                                    final JsonValue val) {
