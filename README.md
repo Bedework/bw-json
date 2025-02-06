@@ -1,4 +1,4 @@
-# bw-json
+# bw-json [![Build Status](https://travis-ci.org/Bedework/bw-util2.svg)](https://travis-ci.org/Bedework/bw-util2)
 Create and parse json objects and types.
 
 ## Requirements
@@ -33,3 +33,5 @@ For full details, see [Sonatype's documentation for using Maven to publish relea
 * Allow for long and double types in json.
 * Add a method which allows null values - implying remove property if it exists.
 
+### 1.0.1
+Pre-jakarta
