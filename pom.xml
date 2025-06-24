@@ -8,7 +8,7 @@
   </parent>
 
   <artifactId>bw-json</artifactId>
-  <version>2.0.0</version>
+  <version>2.1.0-SNAPSHOT</version>
   <name>Bedework json: Basic support for json objects and types</name>
   <description>Basic support for json objects and types</description>
   <url>https://github.com/Bedework/bw-json</url>
